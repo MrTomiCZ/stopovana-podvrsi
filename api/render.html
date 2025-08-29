@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Stopovaná</title>
+  <style>
+    @font-face {
+        font-family: "3270Propo";
+        src: url("3270NerdFontPropo-Condensed.ttf") format("truetype");
+    }
+    
+    * {
+      font-family: "3270Propo";
+    }
+  </style>
+  <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+</head>
+<body>
+  <md-block id="mdown"></md-block>
+  <script>
+  (async () => {
+    const path = window.location.pathname.slice(1) || "README";
+    const fallback = "/404.md";
+  
+    let url = path + ".md";
+  
+    // Check if the file exists
+    try {
+      const test = await fetch(url);
+      if (!test.ok || test.headers.get("content-type")?.includes("text/html")) {
+        url = fallback;
+      }
+    } catch {
+      url = fallback;
+    }
+  
+    // Set src for md-block
+    const mdown = document.getElementById("mdown");
+    mdown.setAttribute("src", url);
+  
+    // Fetch the markdown to extract the first heading
+    try {
+      const res = await fetch(url).then(r => r.text());
+      const headingMatch = res.match(/^#\s+(.+)/m);
+      document.title = headingMatch ? headingMatch[1].trim() : "Stopovaná";
+    } catch {
+      document.title = "Stopovaná";
+    }
+  })();
+  </script>
+</body>
+</html>
