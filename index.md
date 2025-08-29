@@ -1,4 +1,4 @@
-[!StopovanaLogo[/images/logo.png]]
+![StopovanaLogo](/images/logo.png)
 
 # Stopovaná Podvrší
 
