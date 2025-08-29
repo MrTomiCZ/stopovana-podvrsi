@@ -26,6 +26,7 @@ export default async function handler(req, res) {
             <h2>Nová registrace</h2>
             <p><strong>Jméno:</strong> ${name}</p>
             <p><strong>Email/Telefon:</strong> ${email}</p>
+            <i>registoravny jako pomocnik</i>
         `,
     };
 
