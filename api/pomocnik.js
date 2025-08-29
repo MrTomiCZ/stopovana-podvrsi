@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     const { name, email } = req.query;
 
     if (!name || !email) {
-        return res.status(200).json({ error: 'Missing name or email parameter.' });
+        return res.status(200).json({ error: 'Nenašel jsem name nebo email parametr.' });
     }
 
     // Configure your SMTP transport (use environment variables in production)
@@ -32,8 +32,8 @@ export default async function handler(req, res) {
 
     try {
         await transporter.sendMail(mailOptions);
-        res.status(200).json({ message: 'Email sent successfully.' });
+        res.status(200).json({ message: 'Odesláno v pořádku.' });
     } catch (error) {
-        res.status(200).json({ message: 'Failed to send email.', error: error });
+        res.status(200).json({ message: 'Nelze odeslat.', error: error });
     }
 }
