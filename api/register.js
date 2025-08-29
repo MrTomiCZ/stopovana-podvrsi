@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     });
 
     const mailOptions = {
-        from: '"Stopovana Podvrší" <kokot@frdomains.eu>',
+        from: '"Stopovana Podvrší" <kokotka@frdomains.eu>',
         to: 'mrtomicz@frdomains.eu',
         subject: 'Nová registrace',
         html: `
