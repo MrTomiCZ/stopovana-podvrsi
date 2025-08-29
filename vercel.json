@@ -1,13 +1,5 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
-    {
-      "source": "/:file+(.md)",
-      "destination": "/:file.md"
-    },
-    {
-      "source": "/:path((?!.*\\.md).*)",
-      "destination": "/api/render.html?q=:path"
-    }
+  "routes": [
+    { "src": "/(.*)", "dest": "/pages/404.html", "status": 404 }
   ]
 }
