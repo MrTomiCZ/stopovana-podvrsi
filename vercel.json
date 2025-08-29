@@ -2,11 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/:file*.*",
-      "destination": "/:file*.*"
+      "source": "/:file*.md",
+      "destination": "/:file*.md"
     },
     {
-      "source": "/:path(.*)",
+      "source": "/:path((?!.*\\.md).*)",
       "destination": "/api/render.html?q=:path"
     }
   ]
