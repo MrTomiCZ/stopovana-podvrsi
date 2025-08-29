@@ -1,3 +1,5 @@
+[!StopovanaLogo[/images/logo.png]]
+
 # Stopovaná Podvrší
 
 ## Registrace
