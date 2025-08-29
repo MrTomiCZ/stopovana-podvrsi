@@ -1,13 +1,13 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
+    {
+      "source": "/:file*.md",
+      "has": [{ "type": "host", "value": ".+" }], 
+      "destination": "/:file*.md"
+    },
     {
       "source": "/",
       "destination": "/api/render.html"
-    },
-    {
-      "source": "/:file*.md",
-      "destination": "/:file*.md"
     },
     {
       "source": "/:path((?!.*\\.md).*)",
