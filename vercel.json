@@ -2,6 +2,10 @@
     "routes": [
         { "handle": "filesystem" },
         { "src": "/pomoct", "dest": "/pages/pomocnik.html", "status": 200 },
+        { "src": "/admn", "dest": "/pages/admin.html", "status": 200 },
+        { "src": "/ozn", "dest": "http://46.247.108.145:2520/announce", "status": 200 },
+        { "src": "/get", "dest": "http://46.247.108.145:2520/get", "status": 200 },
+        { "src": "/login", "dest": "http://46.247.108.145:2520/login", "status": 200 },
         { "src": "/(.*)", "status": 404, "dest": "/other-404.html" }
     ]
 }

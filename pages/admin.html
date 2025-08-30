@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin panel</title>
+    <link rel="shortcut icon" href="/images/logo.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <img src="/images/logo.png" alt="StopovanaLogo" width="200">
+    <h1>---- PODVRSI STOPOVANA ADMIN PANEL ----</h1>
+    <h2 id="errbox"></h2>
+    tady muzes posilat oznameni hracum
+    <br>
+    <form id="oznform">
+        <label for="text">Oznameni:</label><br>
+        <input type="text" id="text" name="text" required><br>
+        <input type="submit" value="vodeslat">
+    </form>
+
+    <h1>POKUD SE CHCETE ZAREGISTROVAT JAKO HRAC REGISTRUJTE SE ZDE:</h1>
+    <a href="/">Registrace hracu</a>
+</body>
+<script src="/js/main.js"></script>
+<script>
+(async () => {
+    const pscd = prompt("Admin Panel Passcode:\n>_");
+    const resp = await fetch(`/login?text=${encodeURIComponent(text)}&passcode=${encodeURIComponent(pscd)}`);
+    const pscdata = await response.json();
+    if (!pscdata.success === true) {
+        document.body.innerHTML = "<h1>Spatny passcode</h1>";
+    }
+
+    const form = document.getElementById('oznform');
+    const errbox = document.getElementById('errbox');
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        const text = document.getElementById('text').value;
+
+        try {
+            const response = await fetch(`/ozn?text=${encodeURIComponent(text)}&passcode=${encodeURIComponent(pscd)}`);
+            const data = await response.json();
+            if (data.error) {
+                errbox.style.color = "red";
+                errbox.textContent = `Chyba u serveru: ${data.error}`;
+            } else {
+                errbox.style.color = "green";
+                errbox.textContent = `OK: ${data.message}`;
+            }
+        } catch (error) {
+            errbox.style.color = "red";
+            errbox.textContent = `Chyba na strane klienta: ${error.message}`;
+        }
+    };
+})()
+</script>
+</html>
