@@ -24,7 +24,7 @@
 </body>
 <script src="/js/main.js"></script>
 <script>
-(async () => {
+window.onload = (async () => {
     const pscd = prompt("Admin Panel Passcode:\n>_");
     const resp = await fetch(`/login?text=${encodeURIComponent(text)}&passcode=${encodeURIComponent(pscd)}`);
     const pscdata = await response.json();
@@ -53,6 +53,6 @@
             errbox.textContent = `Chyba na strane klienta: ${error.message}`;
         }
     };
-})()
+});
 </script>
 </html>
