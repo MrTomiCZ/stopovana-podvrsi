@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     const mailOptions = {
         from: '"Stopovana Podvrší" <kokotka@frdomains.eu>',
         to: 'mrtomicz@frdomains.eu',
-        subject: 'Nová registrace',
+        subject: '[pomocnik]Nová registrace',
         html: `
             <h2>Nová registrace</h2>
             <p><strong>Jméno:</strong> ${name}</p>
