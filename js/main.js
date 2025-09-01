@@ -1,6 +1,6 @@
 const dyv = document.createElement('div');
 dyv.classList.add('statusdyv');
-dyv.innerHTML = '<p>TEST OZNÁMENÍ...</p>';
+dyv.innerHTML = '<p>omlouvame se tato stopovana byla ukoncena<br>mozna priste na konci srpna ale pochybuju ze to vubec budu delat..</p>';
 dyv.id = 'statusdyv';
 document.body.prepend(dyv);
 
@@ -16,4 +16,4 @@ async function showStatus() {
     }, 5000);*/
 }
 
-setInterval(async () => await showStatus(), 5000);
+//setInterval(async () => await showStatus(), 5000);
